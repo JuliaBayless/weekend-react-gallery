@@ -13,3 +13,16 @@
   font-size: 1.5em;
 }
 
+.photoContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photoItem {
+  padding: 20px;
+}
+
+.photo {
+  height: 200px;
+  width: 200px;
+}
