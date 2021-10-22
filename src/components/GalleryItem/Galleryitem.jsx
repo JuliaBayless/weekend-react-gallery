@@ -2,7 +2,10 @@
 function GalleryItem({ photo, fetchPhotos }) {
 
     //create a onClick
+const showScript = () => {
 
+    
+}
 
     //print stuff to DOM and create a onclick handle
     return (
