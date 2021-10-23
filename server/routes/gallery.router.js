@@ -22,19 +22,20 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const newPhoto = req.body;
     console.log('this is req.body', req.body);
-    
+
+    //text telling data base to insert new photo
     const sqlText = `
     INSERT INTO "gallery" ("path", "description", "likes") 
-    VALUES ($1, $2, $3);`;
+    VALUES ($1, $2, 0);`;
 
-    let values = [newPhoto.path, newPhoto.description, newPhoto.likes]
+    let values = [newPhoto.path, newPhoto.description]
     pool.query(sqlText, values)
-    .then((result) => {
-        res.sendStatus(201)
-    }).catch((error) => {
-        console.log(`ERROR database POST`, error);
-        res.sendStatus(500);
-    })
+        .then((result) => {
+            res.sendStatus(201)
+        }).catch((error) => {
+            console.log(`ERROR database POST`, error);
+            res.sendStatus(500);
+        })
 });//end POST route
 
 
@@ -65,6 +66,31 @@ router.put('/like/:id', (req, res) => {
         });
 }); // END PUT Route
 
+
+//delete photos from the DOM
+router.delete('/:id', (req, res) => {
+    let idToDelete = req.params.id;
+    console.log('Item to Delete', idToDelete);
+    
+
+    //text telling data base to delete item
+    const queryText = `
+    DELETE from "gallery"
+    WHERE "id" = $1;
+    `
+
+    let value = [idToDelete]
+    pool
+        .query(queryText, value)
+        .then((response) => {
+            res.sendStatus(204); // let the client know the request succeeded
+        })
+        .catch((err) => {
+            console.log(`ERROR in DELETE`, err);
+            res.sendStatus(500); // let the client know the request failed
+        });
+
+}) //end DELETE
 
 
 module.exports = router;

@@ -10,6 +10,22 @@ function GalleryItem({ photo, fetchPhotos }) {
         setTogglePhoto(!togglePhoto);
     }
 
+    const deletePhoto = () => {
+        console.log('In deletePhoto', photo.id);
+        axios
+            .delete(`/gallery/${photo.id}`)
+            .then((response) => {
+                // refresh the DOM
+                fetchPhotos();
+            })
+            .catch((err) => {
+                console.log(
+                    `ERROR in DELETE`,
+                    err
+                );
+            });
+    }
+
     //create a onClick for like button
     const showScript = () => {
         console.log('in ShowScript', photo.id);
@@ -36,19 +52,20 @@ function GalleryItem({ photo, fetchPhotos }) {
     //print stuff to DOM and create a onclick handle
     return (
         // photo and description toggle
-    <div>
-        <div className="photoItem" onClick={toggle}>
-            {togglePhoto ? <img className="photo" src={photo.path} /> :
-                <p className="photo">{photo.description}</p>}
-         </div>
+        <div>
+            <div className="photoItem" onClick={toggle}>
+                {togglePhoto ? <img className="photo" src={photo.path} /> :
+                    <p className="photo">{photo.description}</p>}
+            </div>
 
             <div>
                 {/* button like magic with ternary value to add likes*/}
                 <button onClick={showScript}>Like</button>
                 {photo.likes ? <p>Likes: {photo.likes} </p> :
                     <p>No Likes yet :( </p>}
+                <button onClick={deletePhoto}>Remove</button>
             </div>
-    </div>
+        </div>
 
     ) //end PhotoItem return
 } //end PhotoItem
