@@ -31,16 +31,16 @@ function GalleryForm({ addPhoto }) {
         //start form with buttons and inputs
         <div className="inputContainer">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="Photo:">Photo</label>
-                <input type="text"
+                <label htmlFor="Photo: ">Photo</label>
+                <input className="photoIn" type="text"
                     value={photoPath}
                     onChange={(event) => setPhotoPath(event.target.value)} />
-
-                <label htmlFor="Description:">Description of Photo</label>
-                <input type="text"
-                    value={description}
-                    onChange={(event) => setDescription(event.target.value)} />
-
+                <div>
+                    <label htmlFor="Description:">Description of Photo</label>
+                    <input className="descriptIn"type="text"
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)} />
+                </div>
 
                 <button>Add Photo</button>
             </form>

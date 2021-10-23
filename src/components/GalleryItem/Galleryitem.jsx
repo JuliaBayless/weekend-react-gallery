@@ -54,16 +54,17 @@ function GalleryItem({ photo, fetchPhotos }) {
         // photo and description toggle
         <div>
             <div className="photoItem" onClick={toggle}>
-                {togglePhoto ? <img className="photo" src={photo.path} /> :
-                    <p className="photo">{photo.description}</p>}
+                {togglePhoto ? <img className="photo" src={photo.path} /> : <>
+                <img className="photoFlip" src={photo.path} />
+                    <p className="wordFlip">{photo.description}</p></>}
             </div>
 
             <div>
                 {/* button like magic with ternary value to add likes*/}
-                <button onClick={showScript}>Like</button>
-                {photo.likes ? <p>Likes: {photo.likes} </p> :
-                    <p>No Likes yet :( </p>}
-                <button onClick={deletePhoto}>Remove</button>
+                <button className="likeBtn"onClick={showScript}>Like</button>
+                <button className="deleteBtn"onClick={deletePhoto}>Remove</button>
+                {photo.likes ? <p className="likes">Likes: {photo.likes} </p> :
+                    <p className="likes">No Likes yet :( </p>}
             </div>
         </div>
 
