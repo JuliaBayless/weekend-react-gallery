@@ -45,7 +45,7 @@ function GalleryItem({ photo, fetchPhotos }) {
             <div>
                 {/* button like magic with ternary value to add likes*/}
                 <button onClick={showScript}>Like</button>
-                {photo.likes > 0 ? <p>Likes: {photo.likes} </p> :
+                {photo.likes ? <p>Likes: {photo.likes} </p> :
                     <p>No Likes yet :( </p>}
             </div>
     </div>
