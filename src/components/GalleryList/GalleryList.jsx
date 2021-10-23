@@ -1,8 +1,8 @@
-import GalleryItem from "../GalleryItem/GalleryItem";
+import GalleryItem from "../GalleryItem/Galleryitem";
 
 function GalleryList({ photoList, fetchPhotos }) {
     console.log('inside PhotoList');
-
+    
     //map to loop through photoList objects
     return (
         <div className="photoContainer">
