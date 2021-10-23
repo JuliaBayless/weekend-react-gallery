@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 function GalleryItem({ photo, fetchPhotos }) {
-const [togglePhoto, setTogglePhoto] = useState(false);
+const [togglePhoto, setTogglePhoto] = useState(true);
 
 const toggle = () => {
     setTogglePhoto(!togglePhoto);
@@ -26,11 +26,18 @@ axios({
 }
 
 
+//test for togglePhoto value
+console.log('togglePhoto value', togglePhoto);
+//test for photolikes
 console.log('photo likes before render', photo.likes);
+
+
     //print stuff to DOM and create a onclick handle
     return (
         <div className="photoItem" onClick={toggle}>
-            <img className="photo" src={photo.path} />
+            {togglePhoto ? <img className="photo" src={photo.path}/> :
+            <p className="photo">{photo.description}</p>}
+           
 
             <div>
                 {/* button like magic with ternary value to add likes*/}
