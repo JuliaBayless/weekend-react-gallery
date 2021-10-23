@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     console.log('this is req.body', req.body);
     
     const sqlText = `
-    INSERT INTO "groceries" ("path", "descriptions", "likes") 
+    INSERT INTO "gallery" ("path", "description", "likes") 
     VALUES ($1, $2, $3);`;
 
     let values = [newPhoto.path, newPhoto.description, newPhoto.likes]
