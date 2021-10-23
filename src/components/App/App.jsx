@@ -6,9 +6,11 @@ import './App.css';
 function App() {
   let [photoList, setPhotoList] = useState([]);
 
+  //download this tuff onto DOM first in useEffect 
   useEffect(() => {
     fetchPhotos()
   }, [])
+
 
   // grab the photos from the server
   const fetchPhotos = () => {
@@ -26,8 +28,8 @@ function App() {
   }; //end fetch photos
 
 
-
   console.log(photoList);
+  //append to dom/call other components here
   return (
     <div className="App">
       <header className="App-header">
