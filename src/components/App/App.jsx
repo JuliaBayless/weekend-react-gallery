@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import PhotoList from '../GalleryList/GalleryList';
+import GalleryForm from '../GalleryForm/GalleryForm';
+import GalleryList from '../GalleryList/GalleryList';
 import './App.css';
 
 function App() {
@@ -28,6 +29,22 @@ function App() {
   }; //end fetch photos
 
 
+  const addPhoto = (newPhoto) => {
+    console.log('Start post', newPhoto);
+    axios({
+      method: 'POST',
+      url: '/gallery',
+      data: newPhoto
+    })
+      .then(response => {
+        console.log('POST SUCCESS');
+        fetchPhotos();
+      })
+      .catch(error => {
+        console.log('ERROR IN POST', error);
+      })
+  }
+
   console.log(photoList);
   //append to dom/call other components here
   return (
@@ -35,8 +52,9 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
+      <GalleryForm addPhoto={addPhoto}/>
       <p>Gallery goes here</p>
-      <PhotoList
+      <GalleryList
         photoList={photoList}
         fetchPhotos={fetchPhotos}
       />
