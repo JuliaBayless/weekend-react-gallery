@@ -1,7 +1,13 @@
 import axios from "axios";
+import { useState } from "react";
 
 
 function GalleryItem({ photo, fetchPhotos }) {
+const [togglePhoto, setTogglePhoto] = useState(false);
+
+const toggle = () => {
+    setTogglePhoto(!togglePhoto);
+}
 
     //create a onClick
 const showScript = () => {
@@ -17,22 +23,20 @@ axios({
     }).catch((error) => {
         console.log('Error in UPDATE', error)
     })
-
-console.log(photo.likes);
-return(
- 
-    <p>{photo.likes}</p> 
-
-)
 }
 
+
+console.log('photo likes before render', photo.likes);
     //print stuff to DOM and create a onclick handle
     return (
-        <div className="photoItem">
+        <div className="photoItem" onClick={toggle}>
             <img className="photo" src={photo.path} />
 
             <div>
+                {/* button like magic with ternary value to add likes*/}
                 <button onClick={showScript}>Like</button>
+                {photo.likes > 0 ? <p>Likes: {photo.likes} </p> :
+                <p>No Likes yet :( </p>}
             </div>
         </div>
 
