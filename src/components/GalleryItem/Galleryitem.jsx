@@ -36,10 +36,11 @@ function GalleryItem({ photo, fetchPhotos }) {
     //print stuff to DOM and create a onclick handle
     return (
         // photo and description toggle
+    <div>
         <div className="photoItem" onClick={toggle}>
             {togglePhoto ? <img className="photo" src={photo.path} /> :
                 <p className="photo">{photo.description}</p>}
-
+         </div>
 
             <div>
                 {/* button like magic with ternary value to add likes*/}
@@ -47,8 +48,7 @@ function GalleryItem({ photo, fetchPhotos }) {
                 {photo.likes > 0 ? <p>Likes: {photo.likes} </p> :
                     <p>No Likes yet :( </p>}
             </div>
-        </div>
-
+    </div>
 
     ) //end PhotoItem return
 } //end PhotoItem
