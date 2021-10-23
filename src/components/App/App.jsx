@@ -25,6 +25,8 @@ function App() {
       })
   }; //end fetch photos
 
+
+
   console.log(photoList);
   return (
     <div className="App">
