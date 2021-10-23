@@ -1,9 +1,50 @@
+import { useState } from "react";
 
-function GalleryForm ({addPhoto}){
+//Intake FORM function
+function GalleryForm({ addPhoto }) {
+    //variable for input information
+    const [photoPath, setPhotoPath] = useState('');
+    const [description, setDescription] = useState('');
 
-    return(
+    //handleSubmit for information in inputs
+    const handleSubmit = () => {
+        console.log('In Handle submit');
+        event.preventDefault();
 
-<p>Form Here</p>
+        //object containing input values
+        let newPhoto = {
+            path: photoPath,
+            description: description
+        }
+
+        //run GET from app.jsx
+        addPhoto(newPhoto);
+
+        //clear Inputs
+        setPhotoPath('')
+        setDescription('')
+
+    }//end handleSubmit
+
+
+    return (
+        //start form with buttons and inputs
+        <div className="inputContainer">
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="Photo:">Photo</label>
+                <input type="text"
+                    value={photoPath}
+                    onChange={(event) => setPhotoPath(event.target.value)} />
+
+                <label htmlFor="Description:">Description of Photo</label>
+                <input type="text"
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)} />
+
+
+                <button>Add Photo</button>
+            </form>
+        </div>
 
     )
 } //end GalleryForm
