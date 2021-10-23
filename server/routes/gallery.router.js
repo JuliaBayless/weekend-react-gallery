@@ -18,6 +18,25 @@ router.get('/', (req, res) => {
         }); // END GET Route
 });
 
+//POST for incoming info
+router.post('/', (req, res) => {
+    const newPhoto = req.body;
+    console.log('this is req.body', req.body);
+    
+    const sqlText = `
+    INSERT INTO "groceries" ("path", "descriptions", "likes") 
+    VALUES ($1, $2, $3);`;
+
+    let values = [newPhoto.path, newPhoto.description, newPhoto.likes]
+    pool.query(sqlText, values)
+    .then((result) => {
+        res.sendStatus(201)
+    }).catch((error) => {
+        console.log(`ERROR database POST`, error);
+        res.sendStatus(500);
+    })
+});//end POST route
+
 
 // PUT Route for updating LIKES
 router.put('/like/:id', (req, res) => {
