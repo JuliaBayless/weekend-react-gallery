@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './GalleryForm.css';
 
 //Intake FORM function
 function GalleryForm({ addPhoto }) {
@@ -31,18 +32,19 @@ function GalleryForm({ addPhoto }) {
         //start form with buttons and inputs
         <div className="inputContainer">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="Photo: ">Photo</label>
+                <label htmlFor="Photo: ">Photo Here: </label>
                 <input className="photoIn" type="text"
                     value={photoPath}
                     onChange={(event) => setPhotoPath(event.target.value)} />
-                <div>
-                    <label htmlFor="Description:">Description of Photo</label>
+              
+                    <label htmlFor="Description:">Description:</label>
                     <input className="descriptIn"type="text"
                         value={description}
                         onChange={(event) => setDescription(event.target.value)} />
-                </div>
-
+                
+                <div>
                 <button>Add Photo</button>
+                </div>
             </form>
         </div>
 

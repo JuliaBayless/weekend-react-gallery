@@ -9,7 +9,10 @@ CREATE TABLE "gallery" (
 
 INSERT INTO "gallery" ("path", "description", "likes")
 VALUES 
-('images/goat_small.jpg', 'Photo of a goat taken at Glacier National Park.', 0),
-('images/kid.jpeg', 'Photo of a kid and his dog.', 0),
-('images/lady.jpeg', 'Photo of a a lady striking a cool pose.', 0),
-('images/tower.jpeg', 'Photo of a place I want to be coding at right now.', 0)
+('images/Husband.jpeg', 'Pic of my hubs and I.', 0),
+('images/familia.jpeg', 'Pic de mis hermanos y mi nana.', 0),
+('images/MexicoCity.jpeg', 'My favorite city on the planet... Ciudad de Mèxico.', 0),
+('images/Spice.jpeg', 'The open market in Dubai sell spice in Bulk!', 0),
+('images/Dubai.jpeg', 'Grand Mosque in Abu Dhabi!', 0),
+('images/Westin.jpeg', 'My pup Westin!', 0),
+('images/Becker.jpeg', 'My big boy Becker <3', 0);

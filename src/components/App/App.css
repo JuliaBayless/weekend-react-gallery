@@ -1,3 +1,14 @@
+
+body {
+  background-color: #fffaf6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+label {
+  margin-left: 20px;
+}
+
 inputs {
   margin-bottom: 30px;
 }
@@ -7,20 +18,24 @@ inputs {
 }
 
 .App-header {
-  background-color: #222;
-  padding: 1em;
-  color: white;
+  background-color: #B2B8A3;
   margin-bottom: 1em;
+  font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF5EB;
+  font-variant: small-caps;
+  text-align:center;
+  text-shadow: 1px 1px #EFB7B7;
+  padding:15px 0px 15px 0px; 
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .photoContainer {
   display: flex;
   flex-wrap: wrap;
- 
 }
 
 .photoItem {
@@ -28,6 +43,7 @@ inputs {
   height: 450px;
   position: relative;
   margin: 20px;
+  margin-left: 70px;
 }
 
 .photo {
@@ -50,9 +66,8 @@ inputs {
 }
 
 .photoFlip{
- opacity: 50%;
- -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+  opacity: 40%;
+  filter: sepia(50%) contrast(150%) saturate(200%) brightness(100%) hue-rotate(-15deg);
   top: 0;
   left: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -73,8 +88,26 @@ font-size: large;
 margin-left: 10px;
 margin-right: 110px;
 margin-bottom: 10px;
+border: .5px solid #cdd4bc;
+appearance: none;
+padding: 10px;
+border-radius: 3px;
+width: 450px;
+font-size: 14px;
 }
 
 .photoIn {
+  margin-left: 10px;
   margin-bottom: 10px;
+  border: .5px solid #cdd4bc;
+  appearance: none;
+  padding: 10px;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.photoIn:hover, 
+.descriptIn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 10px;
 }

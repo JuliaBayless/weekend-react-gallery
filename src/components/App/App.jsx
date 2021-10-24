@@ -53,7 +53,6 @@ function App() {
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
       <GalleryForm addPhoto={addPhoto}/>
-      <p>Gallery goes here</p>
       <GalleryList
         photoList={photoList}
         fetchPhotos={fetchPhotos}
